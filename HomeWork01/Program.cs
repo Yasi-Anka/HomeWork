@@ -61,7 +61,7 @@ else
 */
 
 //Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
-
+/*
 Console.WriteLine("Введите число ");
 int a = Convert.ToInt32(Console.ReadLine());
 
@@ -69,9 +69,24 @@ int b = a % 2;
 
 if(b == 0)
 {
-    Console.WriteLine("Число " + a + " чётное");
+    Console.WriteLine("Число " + a + " - чётное");
 }
 else
 {
-    Console.WriteLine("Число "+ a + " не чётное");
+    Console.WriteLine("Число "+ a + " - не чётное");
+}
+
+*/
+
+// Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+
+Console.WriteLine("Введите число");
+int N = Convert.ToInt32(Console.ReadLine());
+
+int n = 2;
+
+while(n < N + 1)
+{
+Console.Write(n + " ");
+n = n + 2;
 }
