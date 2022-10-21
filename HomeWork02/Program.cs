@@ -28,6 +28,7 @@ Console.WriteLine(n);
 */
 // Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
+/*
 int ThirdDigit(int N)
 {
     while(N > 999)
@@ -51,5 +52,35 @@ else
     int n = ThirdDigit(N);
     Console.WriteLine(n);
 }
+*/
+
+// Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+void YesNo(int N)
+{
+if((N == 1)||(N == 2)||(N == 3)|| N == 4 || N == 5)
+Console.WriteLine("No( - Будний");
+else
+Console.WriteLine("Yes! - Выходной");
+}
+
+Console.WriteLine("Введите день недели от 1 до 7-ми. Где 1 - понедельник, 2 - вторник, 3 - среда, 4 - четверг, 5 - пятница, 6 суббота, 7 - воскресенье.");
+int N = Convert.ToInt32(Console.ReadLine());
+while(N<1||N>7)
+{
+    Console.WriteLine("Введите день недели от 1 до 7-ми!");
+    N = Convert.ToInt32(Console.ReadLine());
+}
+YesNo(N);
+
+
+
+
+
+
+
+
+
+
 
 
