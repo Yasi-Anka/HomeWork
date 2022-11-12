@@ -48,7 +48,7 @@ Console.WriteLine("Сумма цифр равна " + FindSum(N));
 
 void FillArray(int[] collection)
 {
-    int length = collection.Length;//определить длинну массива
+    int length = collection.Length;
     int index = 0;
     int x = 0;
     
@@ -56,7 +56,7 @@ void FillArray(int[] collection)
     {
         Console.WriteLine("Введите элемент массива в ячейку " + index);
         x = Convert.ToInt32(Console.ReadLine());
-        collection[index] = x;// положить в ячейку с индексом случайно сгенерированное число от 1 до 10
+        collection[index] = x;
         index++;
     }
 
