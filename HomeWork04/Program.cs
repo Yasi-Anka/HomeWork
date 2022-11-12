@@ -75,5 +75,3 @@ int [] array = new int[8];
 FillArray(array);
 
 ShowArray(array);
-
-
