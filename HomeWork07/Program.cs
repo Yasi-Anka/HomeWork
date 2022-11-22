@@ -110,12 +110,36 @@ void Show2dArray(int[,] array)// печать двумерного массив�
 {
     for(int i = 0; i < array.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(0); j++)
+        for(int j = 0; j < array.GetLength(1); j++)
         Console.Write(array[i,j] + " ");
 
     Console.WriteLine();
     }
 }
+
+int[] SrArifmColumns(int[,] array)
+{
+        int size = array.GetLength(0);
+        int[] ArraySrArifm = new int[size];
+        int Sum = 0;
+        for (int j = 0; j < array.GetLength(1); j++)
+            {
+            for(int i = 0; i < array.GetLength(0); i++)
+                Sum = Sum + array[i,j];
+            ArraySrArifm[j] = Sum/size;
+            Sum = 0;
+            }
+return ArraySrArifm;
+}
+
+void ShowArray(int[] array) // Вывести массив на консоль
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+    
+    Console.WriteLine();
+}
+     
 
 Console.Write("Введите количество строк ");
 int m = Convert.ToInt32(Console.ReadLine());
@@ -125,4 +149,11 @@ Console.Write("Введите минимальный элемент массив
 int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите максимакльный элемент массива ");
 int max = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите номер строки искомого элемента ");
+
+int[,] myarray = CreateRandom2dArray(m, n, min, max);
+Show2dArray(myarray);
+
+int[] myArray = SrArifmColumns(myarray);
+Console.WriteLine();
+ShowArray(myArray);
+
