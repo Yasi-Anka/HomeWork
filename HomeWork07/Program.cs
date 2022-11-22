@@ -17,7 +17,7 @@ void Show2dArray(double[,] array)// печать двумерного масси
 {
     for(int i = 0; i < array.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(0); j++)
+        for(int j = 0; j < array.GetLength(1); j++)
         Console.Write(array[i,j] + " ");
 
     Console.WriteLine();
@@ -58,7 +58,7 @@ void Show2dArray(int[,] array)// печать двумерного массив�
 {
     for(int i = 0; i < array.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(0); j++)
+        for(int j = 0; j < array.GetLength(1); j++)
         Console.Write(array[i,j] + " ");
 
     Console.WriteLine();
