@@ -27,23 +27,25 @@ void Show2dArray(int[,] array)// печать двумерного массив�
 
 void Sortirovka(int[,] array)
 {
-    int min = 0;
+    int max = 0;
     int temp =0;
-    int k = 0;
+    int k = - 1;
     for(int i = 0; i < array.GetLength(0); i++)
     {
-        k = - 1;
-        for(int j = k + 1; j < array.GetLength(1); j++)
+        max = array[i,0];
+        temp = array[i,0];
+        k = -1;
+        for(int j = k + 1; j < array.GetLength(1)-1; j++)
         {
-            min = array[i,j];
-            for(j = 0; j < array.GetLength(1)-1; j++)
+            k = - 1;
+            for(j = k + 1; j < array.GetLength(1)-1; j++)
             {   
-                if (array[i+1,j+1] < min)
-                min = array[i+1,j+1];
-                array[i+1,j+1] = temp;
+                if (array[i,j+1] > max)
+                max = array[i,j+1];
+                array[i,j+1] = temp;
             }
-            array[i,j] = min;
-            array[i+1,j+1] = temp;
+            temp = array[i,j];
+            array[i,j] = max;
             k++;
         }
     }
