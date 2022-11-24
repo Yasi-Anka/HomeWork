@@ -29,26 +29,25 @@ void Sortirovka(int[,] array)
 {
     int max = 0;
     int temp =0;
-    int k = - 1;
-    for(int i = 0; i < array.GetLength(0); i++)
+      for(int i = 0; i < array.GetLength(0); i++)
     {
         max = array[i,0];
         temp = array[i,0];
-        k = -1;
-        for(int j = k + 1; j < array.GetLength(1)-1; j++)
-        {
-            k = - 1;
-            for(j = k + 1; j < array.GetLength(1)-1; j++)
-            {   
-                if (array[i,j+1] > max)
-                max = array[i,j+1];
-                array[i,j+1] = temp;
+        
+        for(int j = 0; j < array.GetLength(1)-1; j++)
+            {    
+            for(j = 0; j < array.GetLength(1)-1; j++)
+            {
+                while (array[i,j+1] > max)
+                {
+                    max = array[i,j+1];
+                    array[i,j+1] = array[i,j];
+                    array[i,j] = max; 
+                }
+                                            
             }
-            temp = array[i,j];
-            array[i,j] = max;
-            k++;
+            }      
         }
-    }
   }
 
 Console.Write("Введите количество строк ");
