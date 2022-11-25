@@ -28,27 +28,33 @@ void Show2dArray(int[,] array)// печать двумерного массив�
 void Sortirovka(int[,] array)
 {
     int max = 0;
-    int temp =0;
+    int iMax = 0;
+    int jMax = 0;
+    
+   
       for(int i = 0; i < array.GetLength(0); i++)
     {
-        max = array[i,0];
-        temp = array[i,0];
         
-        for(int j = 0; j < array.GetLength(1)-1; j++)
-            {    
-            for(j = 0; j < array.GetLength(1)-1; j++)
+        for(int j = 0; j < array.GetLength(1); j++)
+            {   
+                max = array[iMax,jMax];
+                iMax = i;
+                jMax = 0; 
+            for(int n = 0 + j; n < array.GetLength(1); n++)
             {
-                while (array[i,j+1] > max)
-                {
-                    max = array[i,j+1];
-                    array[i,j+1] = array[i,j];
-                    array[i,j] = max; 
-                }
-                                            
+                if (array[i,n] > max); 
+                   {
+                    max = array[i,n];
+                    jMax = n;
+                   }                                   
+            } 
+            if (array [i, j] < max)     
+            {array[iMax, jMax] = array[i, j];
+            array[i, j] = max;}
+
             }
-            }      
-        }
-  }
+    }
+}
 
 Console.Write("Введите количество строк ");
 int m = Convert.ToInt32(Console.ReadLine());
