@@ -1,7 +1,7 @@
 ﻿// Задача 54: Задайте двумерный массив.
 // Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 
-
+/*
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -65,9 +65,85 @@ Console.WriteLine();
 Sortirovka(myarray);
 Show2dArray(myarray);
 
+*/
+
 // Задача 56: Задайте прямоугольный двумерный массив.
 // Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// ЕСЛИ ОДИНОКОВАЯ СУММА В НЕСКОЛЬКИХ СТРОКАХ?
 
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
+{
+    int[,] array = new int[rows, columns];
+
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j < columns; j++)
+                array[i,j] = new Random().Next(minValue, maxValue + 1);
+    }
+    return array;
+}
+
+void Show2dArray(int[,] array)// печать двумерного массива
+
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        Console.Write(array[i,j] + " ");
+
+    Console.WriteLine();
+    }
+}
+
+int[] SumRows (int[,] array, int rows)
+{
+    int sum = 0;
+    int [] TempArray = new int[rows];
+
+    for(int i = 0; i < array.GetLength(0); i++ )
+    {
+        sum = 0;
+       for(int j = 0; j < array.GetLength(1); j++)
+       {
+            sum = array[i,j] + sum;
+        }
+        TempArray[i] = sum;
+    }
+return TempArray;
+}
+
+int Min(int[] array)
+{
+    
+    int min = array[0];
+    int N = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i]<min)
+        {
+            min = array[i];
+            N = i;
+        }
+    }
+    
+    return N;
+}
+
+Console.Write("Введите количество строк ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальный элемент массива ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимакльный элемент массива ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[,] myarray = CreateRandom2dArray(m, n, min, max);
+Show2dArray(myarray);
+
+int[] SumArray = SumRows(myarray, m);
+
+Console.WriteLine("Наименьшая сумма элементов в " + Min(SumArray) + " строке (нумерация строк с 0)");
 
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
