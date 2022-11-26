@@ -181,18 +181,53 @@ void Show2dArray(int[,] array)// печать двумерного массив�
 int[,,] CreateRandom2dArray(int layer1, int layer2, int layer3, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,,] array = new int[layer1, layer2, layer3];
+    int x = 0;
+    bool n = false;
 
     for(int i = 0; i < layer1; i++)
     {
         for(int j = 0; j < layer2; j++)
             {
                 for(int k = 0; k < layer3; k++)
-                array[i,j,k] = new Random().Next(minValue, maxValue + 1);
+                {
+                x = new Random().Next(minValue, maxValue + 1);
+                n = false;
+                
+                while (n == false)
+                {
+                    int ix = 0;
+                    int jx = 0;
+                    int kx = 0;
+                    for(ix = 0; ix < layer1; ix++)
+                        {
+                        for(jx = 0; jx < layer2; jx++)
+                            {
+                            for(kx = 0; kx < layer3; kx++)
+                            {
+                                if(x == array[ix,jx,kx])
+                                {
+                                    x = new Random().Next(minValue, maxValue + 1);
+                                    
+                                }
+                                else
+                                {
+                                n = true;
+                                
+                                }                           
+                            }
+                                
+                            }
+                        }
+                }
+                
+                array[i,j,k] = x;
+                           
+               }
             }
     }
     return array;
 }
-
+                        
 void Show2dArray(int[,,] array)// печать двумерного массива
 {
     for(int i = 0; i < array.GetLength(0); i++)
@@ -211,6 +246,15 @@ void Show2dArray(int[,,] array)// печать двумерного массив
 
 }
 
+bool Test(int layer1, int layer2, int layer3, int minValue, int maxValue)
+{
+    int N = maxValue - minValue + 2;
+    if ((layer1*layer2*layer3)>=N)
+    return false;
+    else return true;
+}
+
+
 Console.Write("Введите количество элементов первого уровня массива ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество элементов второго уровня массива ");
@@ -222,8 +266,21 @@ int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите максимакльный элемент массива ");
 int max = Convert.ToInt32(Console.ReadLine());
 
+bool x = Test(m, n, k, min, max);
+
+if(x == true)
+{
 int[,,] myarray = CreateRandom2dArray(m, n, k, min, max);
 Show2dArray(myarray);
+}
 
+else
+Console.WriteLine("В заданном диапазоне недостаточно чисел для заполнения массива");
 
 // Задача 62: Напишите программу, которая заполнит спирально массив 4 на 4.
+/*
+int[,] Spiral(int rows, int columns)
+{
+ for(int i = 0; i < array.GetLength(0);  )
+}
+*/
