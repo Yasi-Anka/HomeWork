@@ -69,9 +69,8 @@ Show2dArray(myarray);
 
 // Задача 56: Задайте прямоугольный двумерный массив.
 // Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-// НЕДОРАБОТАНО: ЕСЛИ ОДИНОКОВАЯ СУММА В НЕСКОЛЬКИХ СТРОКАХ?
 
-/*
+
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -113,7 +112,7 @@ int[] SumRows (int[,] array, int rows)
 return TempArray;
 }
 
-int Min(int[] array)
+void Min(int[] array)
 {
     
     int min = array[0];
@@ -126,8 +125,15 @@ int Min(int[] array)
             N = i;
         }
     }
-    
-    return N;
+    Console.Write("Наименьшая сумма элементов в ");
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[N] == array[i])
+        Console.Write(", "+ i);
+    }
+
+    Console.Write(" строке (нумерация строк с 0)");
+  
 }
 
 Console.Write("Введите количество строк ");
@@ -144,12 +150,12 @@ Show2dArray(myarray);
 
 int[] SumArray = SumRows(myarray, m);
 
-Console.WriteLine("Наименьшая сумма элементов в " + Min(SumArray) + " строке (нумерация строк с 0)");
-*/
+Min(SumArray);
+
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
-
+/*
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -241,8 +247,7 @@ else
 
 }
 
-
-
+*/
 
 // Задача 60: Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу,
 // которая будет построчно выводить массив, добавляя индексы каждого элемента.
@@ -351,11 +356,8 @@ Console.WriteLine("В заданном диапазоне недостаточн
 */
 
 // Задача 62: Напишите программу, которая заполнит спирально массив 4 на 4.
-// НЕДОРАБОТАНО:
-// 1 исправить вывод результата из 1, 2, 3... в 01, 02, 03 Что бы матрица красиво выводилась на экране
-// 2 работает только с прямоугольными матрицами((
-
 /*
+
 int[,] Spiral(int rows, int columns)
 
 {
