@@ -148,7 +148,8 @@ Console.WriteLine("Наименьшая сумма элементов в " + Min
 */
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-/*
+
+
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -171,7 +172,75 @@ void Show2dArray(int[,] array)// печать двумерного массив�
     Console.WriteLine();
     }
 }
-*/
+
+int[,] MatrixMultiplication(int[,] array1, int[,] array2)
+{
+    int[,] array = new int[array1.GetLength(0), array2.GetLength(1)];
+   
+    int sum = 0;
+
+    for(int j = 0; j < array2.GetLength(1); j++)
+    {
+        for(int i = 0; i < array1.GetLength(0); i++)
+        {
+            sum = 0;
+            for(int i2 = 0, j1 = 0; i2 < array2.GetLength(0) && j1 < array1.GetLength(1); i2++, j1++)
+            {
+                sum = sum + array1[i,j1]*array2[i2, j];
+            }
+
+            array[i,j] = sum;
+
+        }
+    }
+return array;
+}
+
+Console.Write("Введите количество строк матрицы 1: ");
+int m1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов матрицы 1: ");
+int n1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальный элемент массива матрицы 1: ");
+int min1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимакльный элемент массива матрицы 1: ");
+int max1 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine();
+
+Console.Write("Введите количество строк матрицы 2: ");
+int m2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов матрицы 2: ");
+int n2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите минимальный элемент массива матрицы 2: ");
+int min2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите максимакльный элемент массива матрицы 2: ");
+int max2 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine();
+
+
+if(n1 != m2)
+Console.Write("Матрицу 1 невозможно умножить на матрицу 2, так как число столбцов матрицы 1 не равно числу строк матрицы 2.");
+else
+{
+    Console.WriteLine("Матрица 1");
+    int[,] array1 = CreateRandom2dArray(m1, n1, min1, max1);
+    Show2dArray(array1);
+
+    Console.WriteLine();
+
+    Console.WriteLine("Матрица 2");
+    int[,] array2 = CreateRandom2dArray(m2, n2, min2, max2);
+    Show2dArray(array2);
+
+    Console.WriteLine();
+
+    Console.WriteLine("Результат умножения:");
+    int[,] array = MatrixMultiplication(array1, array2);
+    Show2dArray(array);
+
+}
+
 
 
 
@@ -286,7 +355,7 @@ Console.WriteLine("В заданном диапазоне недостаточн
 // 1 исправить вывод результата из 1, 2, 3... в 01, 02, 03 Что бы матрица красиво выводилась на экране
 // 2 работает только с прямоугольными матрицами((
 
-
+/*
 int[,] Spiral(int rows, int columns)
 
 {
@@ -344,3 +413,4 @@ Console.WriteLine();
 
 int[,] myarray = Spiral(m, n);
 Show2dArray(myarray);
+*/
