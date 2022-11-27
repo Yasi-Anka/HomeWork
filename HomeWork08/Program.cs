@@ -1,7 +1,7 @@
 ﻿// Задача 54: Задайте двумерный массив.
 // Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 
-/*
+
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -65,12 +65,12 @@ Console.WriteLine();
 Sortirovka(myarray);
 Show2dArray(myarray);
 
-*/
+
 
 // Задача 56: Задайте прямоугольный двумерный массив.
 // Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-
+/*
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)//генерация рандомного двумерного массива
 {
     int[,] array = new int[rows, columns];
@@ -151,7 +151,7 @@ Show2dArray(myarray);
 int[] SumArray = SumRows(myarray, m);
 
 Min(SumArray);
-
+*/
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
